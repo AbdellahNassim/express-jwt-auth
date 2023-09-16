@@ -15,7 +15,7 @@ function LoginScreen({}: Props) {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
 
-  const [login, { data, error, isLoading }] = useLoginMutation();
+  const [login, { isLoading }] = useLoginMutation();
 
   const { userInfo } = useSelector<RootState, AuthState>((state) => state.auth);
 

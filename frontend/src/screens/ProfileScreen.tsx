@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AuthState, setCredentials } from "../slices/auth.slice";
 import { Form, Button } from "react-bootstrap";
@@ -11,7 +10,6 @@ import FormContainer from "../components/FormContainer";
 type Props = {};
 
 function ProfileScreen({}: Props) {
-  const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
 
   const { userInfo } = useSelector<RootState, AuthState>((state) => state.auth);
@@ -21,7 +19,7 @@ function ProfileScreen({}: Props) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const [updateProfile, { data, error, isLoading }] = useUpdateUserMutation();
+  const [updateProfile, { isLoading }] = useUpdateUserMutation();
   useEffect(() => {
     setName(userInfo?.name ?? "");
     setEmail(userInfo?.email ?? "");
