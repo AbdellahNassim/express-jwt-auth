@@ -107,11 +107,9 @@ const _updateUserProfileHandler: Handler = async (req, res, next) => {
       await updatedUser.save();
     }
     res.status(200).json({
-      user: {
-        _id: updatedUser._id,
-        name: updatedUser.name,
-        email: updatedUser.email,
-      },
+      _id: updatedUser._id,
+      name: updatedUser.name,
+      email: updatedUser.email,
     });
   } else {
     res.status(404);
